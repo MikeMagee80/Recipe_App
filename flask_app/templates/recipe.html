@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+</head>
+<body>
+    <h1>
+        Welcome, {{session['first_name']}}
+    </h1>
+    <p>
+        <a href="/dashboard">
+            Back to recipes
+        </a>
+    </p>
+    <p>
+        <a href="/user/logout">
+            Logout
+        </a>
+    </p>
+    <!-- <h2> Needs changed from Trees to Recipes -->
+        {{current_tree.name}}
+    </h2>
+    <p>
+        planted by {{current_tree.user.first_name}} {{current_tree.user.last_name}}
+    </p>
+    <div>
+        <p>
+            location: {{current_tree.location}}
+        </p>
+        <p>
+            When: {{current_tree.date_planted}}
+        </p>
+        <p>
+            Reason: {{current_tree.}}
+        </p>
+    </div>
+
+</body>
+</html>
