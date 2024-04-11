@@ -5,80 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe App | Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
-    <h1>
-        Register
-    </h1>
-    <form method="POST" action="/user/registration">  <!--POSTs to registration action route in users_controllers-->
-        <div>
-            <label>
-                First name:
-            </label>
-            <input type="text" name="first_name" />  <!--make sure the names match the column names in your db tables-->
-            {% for message in get_flashed_messages(category_filter = ['error_registration_first_name']) %}
+    <div class="d-flex flex-column align-items-center">
+        <h1>
+            Register
+        </h1>
+        <form method="POST" action="/user/registration">  <!--POSTs to registration action route in users_controllers-->
+            <div>
+                <label>
+                    First name:
+                </label>
+                <input type="text" name="first_name" />  <!--make sure the names match the column names in your db tables-->
+                {% for message in get_flashed_messages(category_filter = ['error_registration_first_name']) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div>
+                <label>
+                    Last name:
+                </label>
+                <input type="text" name="last_name" />
+                {% for message in get_flashed_messages(category_filter = ['error_registration_last_name']) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div>
+                <label>
+                    Email:     
+                </label>
+                <input type="text" name="email" />
+                {% for message in get_flashed_messages(category_filter = ['error_registration_email']) %}
+                    {{message}}
+                {% endfor %}
+            </div>
+            <div>
+                <label>
+                    Password:
+                </label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <label>
+                    Password confirmation:
+                </label>
+                <input type="password" name="password_confirmation" />  <!--not a db table column name, but we will use it for validations!-->
+                {% for message in get_flashed_messages(category_filter = ['error_registration_password_confirmation']) %}
+                    {{message}}
+                {% endfor %}            
+            </div>
+            <div class="d-flex justify-content-center">
+                <button>Submit</button>
+            </div>  
+        </form>
+        <h1>
+            Login
+        </h1>
+        <form method="POST" action="/user/login">
+            <div>
+                <label>
+                    Email:
+                </label>
+                <input type="text" name="email" /> 
+            </div>
+            <div>
+                <label>
+                    Password:
+                </label>
+                <input type="password" name="password" />
+            </div>
+            {% for message in get_flashed_messages(category_filter = ['error_login_credentials']) %}
                 {{message}}
             {% endfor %}
-        </div>
-        </div>
-        <div>
-            <label>
-                Last name:
-            </label>
-            <input type="text" name="last_name" />
-            {% for message in get_flashed_messages(category_filter = ['error_registration_last_name']) %}
-                {{message}}
-            {% endfor %}
-        </div>
-        </div>
-        <div>
-            <label>
-                Email:
-            </label>
-            <input type="text" name="email" />
-            {% for message in get_flashed_messages(category_filter = ['error_registration_email']) %}
-                {{message}}
-            {% endfor %}
-        </div>
-        </div>
-        <div>
-            <label>
-                Password:
-            </label>
-            <input type="password" name="password" />
-        </div>
-        </div>
-        <div>
-            <label>
-                Password confirmation:
-            </label>
-            <input type="password" name="password_confirmation" />  <!--not a db table column name, but we will use it for validations!-->
-            {% for message in get_flashed_messages(category_filter = ['error_registration_password_confirmation']) %}
-                {{message}}
-            {% endfor %}            
-        </div>
-        <button>Submit</button>
-    </form>
-    <h1>
-        Login
-    </h1>
-    <form method="POST" action="/user/login">
-        <div>
-            <label>
-                Email:
-            </label>
-            <input type="text" name="email" /> 
-        </div>
-        <div>
-            <label>
-                Password:
-            </label>
-            <input type="password" name="password" />
-        </div>
-        {% for message in get_flashed_messages(category_filter = ['error_login_credentials']) %}
-            {{message}}
-        {% endfor %}           
-        <button>Submit</button>
-    </form>
+            <div class="d-flex justify-content-center">          
+                <button>Submit</button>
+            </div> 
+        </form>
+    </div>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </body>
 </html>
